@@ -9,6 +9,13 @@ class LinkedList
   end
 
   def reverse!
-    # your code here
+    current = head
+
+    while tail != head
+      current.prev_node = head.next_node
+      current = current.prev_node
+    end 
   end
+
+
 end
