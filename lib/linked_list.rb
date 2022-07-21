@@ -9,12 +9,21 @@ class LinkedList
   end
 
   def reverse!
-    current = head
+    og_head = self.head
+    og_tail = self.tail
+    og_head_next = og_head.next_node
+    og_tail_prev = og_tail.prev_node
 
-    while tail != head
-      current.prev_node = head.next_node
-      current = current.prev_node
-    end 
+    self.tail = og_head
+    self.head = og_tail
+
+    node = tail
+
+    until og_head_next == og_head.prev_node && og_tail_prev == og_tail.next_node
+      node.prev_node = head.next_node
+      node = node.prev_node
+    end
+    
   end
 
 
